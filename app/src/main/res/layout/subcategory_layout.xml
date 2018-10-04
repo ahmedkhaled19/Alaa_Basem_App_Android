@@ -5,7 +5,7 @@
 
         <variable
             name="subcategoryVM"
-            type="com.ahmed.elmalek.ui.subcategory_screen.view_model.SubCategoryViewModel" />
+            type="com.ahmed.elmalek.ui.subcategory_screen.view_model.SubcategoryViewModel" />
     </data>
 
     <RelativeLayout
@@ -13,11 +13,12 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/subcategory_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_16sdp" />
+            android:layout_marginStart="@dimen/_80sdp"
+            android:layout_marginTop="@dimen/_16sdp" />
 
     </RelativeLayout>
 

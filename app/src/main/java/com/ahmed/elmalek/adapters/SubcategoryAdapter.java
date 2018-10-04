@@ -9,8 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ahmed.elmalek.R;
-import com.ahmed.elmalek.databinding.SubcategoryLayoutBinding;
+import com.ahmed.elmalek.databinding.SubcategoryListItemBinding;
 import com.ahmed.elmalek.models.CategoryModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -27,16 +28,15 @@ public class SubcategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.subcategoru_list_item, viewGroup, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.subcategory_list_item, viewGroup, false);
         return new SubCategoryViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
-//        Picasso.with(context)
-//                .load(list.get(position).getImageURL())
-//                .into(((SubCategoryViewHolder) viewHolder).binding.);
-//        ((SubCategoryViewHolder) viewHolder).binding.categoryItemName.setText(list.get(position).getName());
+        Picasso.with(context)
+                .load(list.get(position).getImageURL())
+                .into(((SubCategoryViewHolder) viewHolder).binding.subcategoryItemImage);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class SubcategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     private class SubCategoryViewHolder extends RecyclerView.ViewHolder {
-        SubcategoryLayoutBinding binding;
+        SubcategoryListItemBinding binding;
 
         public SubCategoryViewHolder(View itemView) {
             super(itemView);

@@ -1,10 +1,12 @@
 package com.ahmed.elmalek.ui.splash_screen;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import com.ahmed.elmalek.R;
+import com.ahmed.elmalek.ui.home_screen.view.HomeActivity;
 import com.ahmed.elmalek.utils.SharedPrefreanceManager;
 
 public class SplashActivity extends AppCompatActivity {
@@ -27,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void handelWorkThrough() {
-
+        startActivity(new Intent(this, HomeActivity.class));
     }
 }
 

@@ -12,7 +12,6 @@ import com.ahmed.elmalek.R;
 import com.ahmed.elmalek.callBacks.CategoryCallBack;
 import com.ahmed.elmalek.databinding.CategoryListItemBinding;
 import com.ahmed.elmalek.models.CategoryModel;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -36,11 +35,18 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
-        Picasso.with(context)
-                .load(list.get(position).getImageURL())
-                .into(((CategoryViewHolder) viewHolder).binding.categoryItemImage);
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, final int position) {
+//        Picasso.with(context)
+//                .load(list.get(position).getImageURL())
+//                .into(((CategoryViewHolder) viewHolder).binding.categoryItemImage);
+        ((CategoryViewHolder) viewHolder).binding.categoryItemImage.setImageResource(R.drawable.ic_paper_plane);
         ((CategoryViewHolder) viewHolder).binding.categoryItemName.setText(list.get(position).getName());
+        ((CategoryViewHolder) viewHolder).itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callBack.moveToSubCategory(list.get(position).getName());
+            }
+        });
     }
 
     @Override

@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="profileVM"
+            type="com.ahmed.elmalek.ui.profile_screen.view_model.ProfileViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,21 +19,34 @@
             android:layout_height="wrap_content"
             android:background="@color/yellow">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/_16sdp"
-                android:src="@drawable/profile_image"
-                app:civ_border_color="@color/white"
-                app:civ_border_width="2dp" />
+            <RelativeLayout
+                android:id="@+id/profile_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/_180sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_35sdp"
+                    android:src="@drawable/ic_crown" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_70sdp"
+                    android:src="@drawable/profile_image"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="2dp" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/profile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/profile_image"
+                android:layout_below="@id/profile_layout"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:text="Salah"
