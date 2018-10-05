@@ -25,16 +25,16 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:layout_width="@dimen/_180sdp"
-                    android:layout_height="@dimen/_60sdp"
+                    android:layout_width="@dimen/_190sdp"
+                    android:layout_height="@dimen/_70sdp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
                     android:src="@drawable/ic_crown" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_image"
-                    android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_80sdp"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_90sdp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/_70sdp"
                     android:src="@drawable/profile_image"
@@ -49,20 +49,31 @@
                 android:layout_below="@id/profile_layout"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:text="Salah"
+                android:text="@{profileVM.getProfileName()}"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_16ssp" />
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:id="@+id/profile_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:text="@{profileVM.getProfileUserName()}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
 
             <TextView
                 android:id="@+id/profile_promo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/profile_name"
+                android:layout_below="@id/profile_user_name"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_3sdp"
-                android:text="ah221194"
+                android:text="@{profileVM.getProfilePromoCode()}"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_12ssp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -78,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="center"
-                    android:text="100"
+                    android:text="@{profileVM.getProfileTotalPoints()}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_16ssp" />
 
@@ -92,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="center"
-                    android:text="40"
+                    android:text="@{profileVM.getProfileUsedPoints()}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_16ssp" />
 
@@ -106,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="center"
-                    android:text="60"
+                    android:text="@{profileVM.getProfileRemainPoints()}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_16ssp" />
             </LinearLayout>

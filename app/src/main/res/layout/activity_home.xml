@@ -30,7 +30,7 @@
             android:background="@color/yellow"
             app:itemIconTint="@drawable/custom_bottom_style"
             app:itemTextColor="@drawable/custom_bottom_style"
-            app:menu="@menu/navigation" />
+            app:menu="@menu/home_navigation" />
 
     </RelativeLayout>
 

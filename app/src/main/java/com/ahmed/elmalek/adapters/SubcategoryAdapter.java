@@ -1,6 +1,7 @@
 package com.ahmed.elmalek.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import com.ahmed.elmalek.R;
 import com.ahmed.elmalek.databinding.SubcategoryListItemBinding;
 import com.ahmed.elmalek.models.CategoryModel;
+import com.ahmed.elmalek.ui.brands_screen.view.BrandActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -37,6 +39,13 @@ public class SubcategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         Picasso.with(context)
                 .load(list.get(position).getImageURL())
                 .into(((SubCategoryViewHolder) viewHolder).binding.subcategoryItemImage);
+
+        ((SubCategoryViewHolder) viewHolder).binding.subcategoryItemImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, BrandActivity.class));
+            }
+        });
     }
 
     @Override
