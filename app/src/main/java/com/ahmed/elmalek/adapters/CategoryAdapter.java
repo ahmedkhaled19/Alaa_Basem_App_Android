@@ -12,6 +12,7 @@ import com.ahmed.elmalek.R;
 import com.ahmed.elmalek.callBacks.CategoryCallBack;
 import com.ahmed.elmalek.databinding.CategoryListItemBinding;
 import com.ahmed.elmalek.models.CategoryModel;
+import com.ahmed.elmalek.utils.GeneralMethods;
 
 import java.util.List;
 
@@ -31,6 +32,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(context).inflate(R.layout.category_list_item, viewGroup, false);
+        GeneralMethods.changeItemFont(view);
         return new CategoryViewHolder(view);
     }
 

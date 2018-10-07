@@ -13,6 +13,7 @@ import com.ahmed.elmalek.R;
 import com.ahmed.elmalek.databinding.SubcategoryListItemBinding;
 import com.ahmed.elmalek.models.CategoryModel;
 import com.ahmed.elmalek.ui.brands_screen.view.BrandActivity;
+import com.ahmed.elmalek.utils.GeneralMethods;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -31,6 +32,7 @@ public class SubcategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(context).inflate(R.layout.subcategory_list_item, viewGroup, false);
+        GeneralMethods.changeItemFont(view);
         return new SubCategoryViewHolder(view);
     }
 

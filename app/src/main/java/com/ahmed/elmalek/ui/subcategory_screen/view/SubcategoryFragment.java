@@ -18,6 +18,7 @@ import com.ahmed.elmalek.callBacks.SubcategoryCallBack;
 import com.ahmed.elmalek.databinding.SubcategoryLayoutBinding;
 import com.ahmed.elmalek.models.CategoryModel;
 import com.ahmed.elmalek.ui.subcategory_screen.view_model.SubcategoryViewModel;
+import com.ahmed.elmalek.utils.GeneralMethods;
 
 import java.util.List;
 
@@ -27,6 +28,10 @@ public class SubcategoryFragment extends Fragment implements SubcategoryCallBack
     private SubcategoryViewModel viewModel;
     private SubcategoryAdapter adapter;
 
+    public static Fragment newInstance() {
+        return new SubcategoryFragment();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -34,6 +39,7 @@ public class SubcategoryFragment extends Fragment implements SubcategoryCallBack
         viewModel = ViewModelProviders.of(this).get(SubcategoryViewModel.class);
         viewModel.setCallBackAndGetData(this);
         binding.setSubcategoryVM(viewModel);
+        GeneralMethods.changeViewFont(getActivity());
         return binding.getRoot();
     }
 

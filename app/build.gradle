@@ -45,6 +45,10 @@ dependencies {
 
     //image downloader
     implementation 'com.squareup.picasso:picasso:2.5.2'
+
     //image rounded
     implementation 'de.hdodenhof:circleimageview:2.1.0'
+
+    //font change
+    implementation 'me.anwarshahriar:calligrapher:1.0'
 }

@@ -14,6 +14,7 @@ import com.ahmed.elmalek.R;
 import com.ahmed.elmalek.callBacks.BrandProfileCallBack;
 import com.ahmed.elmalek.databinding.BrandActivityBinding;
 import com.ahmed.elmalek.ui.brands_screen.view_model.BrandViewModel;
+import com.ahmed.elmalek.utils.GeneralMethods;
 
 public class BrandActivity extends AppCompatActivity implements BrandProfileCallBack {
 
@@ -62,6 +63,7 @@ public class BrandActivity extends AppCompatActivity implements BrandProfileCall
         binding.brandNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         fragmentManager = getSupportFragmentManager();
         fragmentManager.findFragmentById(R.id.brand_frame);
+        GeneralMethods.changeViewFont(this);
     }
 
     @Override

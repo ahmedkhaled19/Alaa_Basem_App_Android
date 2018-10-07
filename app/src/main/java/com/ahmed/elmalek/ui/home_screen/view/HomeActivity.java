@@ -14,9 +14,11 @@ import android.view.View;
 
 import com.ahmed.elmalek.R;
 import com.ahmed.elmalek.databinding.ActivityHomeBinding;
+import com.ahmed.elmalek.ui.board_screen.view.BoardFragment;
 import com.ahmed.elmalek.ui.category_screen.view.CategoryFragment;
 import com.ahmed.elmalek.ui.home_screen.view_model.HomeViewModel;
 import com.ahmed.elmalek.ui.profile_screen.view.ProfileFragment;
+import com.ahmed.elmalek.utils.GeneralMethods;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -67,6 +69,7 @@ public class HomeActivity extends AppCompatActivity {
         viewModel.setContextAndGetSliderImageData(this, homeBinding.homeSliderImage);
         fragmentManager = getSupportFragmentManager();
         fragmentManager.findFragmentById(R.id.home_frame_layout);
+        GeneralMethods.changeViewFont(this);
         changeFragment(1);
     }
 
@@ -74,18 +77,17 @@ public class HomeActivity extends AppCompatActivity {
     private void changeFragment(int index) {
         fragmentTransaction = fragmentManager.beginTransaction();
         if (index == 1) {
-            showSlider(true);
-            CategoryFragment categoryFragment = new CategoryFragment();
-            fragmentTransaction.replace(R.id.home_frame_layout, categoryFragment)
+            fragmentTransaction.replace(R.id.home_frame_layout, CategoryFragment.newInstance())
                     .addToBackStack("home")
                     .commit();
         } else if (index == 2) {
-            ProfileFragment profileFragment = new ProfileFragment();
-            fragmentTransaction.replace(R.id.home_frame_layout, profileFragment)
+            fragmentTransaction.replace(R.id.home_frame_layout, ProfileFragment.newInstance())
                     .addToBackStack("profile")
                     .commit();
         } else if (index == 3) {
-
+            fragmentTransaction.replace(R.id.home_frame_layout, BoardFragment.newInstance())
+                    .addToBackStack("board")
+                    .commit();
         } else if (index == 4) {
         }
     }

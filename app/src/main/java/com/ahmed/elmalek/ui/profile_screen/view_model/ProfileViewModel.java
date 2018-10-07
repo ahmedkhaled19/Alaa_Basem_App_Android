@@ -6,13 +6,18 @@ import android.databinding.BindingAdapter;
 import android.support.annotation.NonNull;
 import android.widget.ImageView;
 
+import com.ahmed.elmalek.callBacks.ProfileCallBack;
+import com.ahmed.elmalek.models.NotificationModel;
 import com.ahmed.elmalek.utils.BaseViewModel;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfileViewModel extends BaseViewModel {
 
     private Context context;
-
+    private ProfileCallBack callBack;
     public ProfileViewModel(@NonNull Application application) {
         super(application);
     }
@@ -22,8 +27,18 @@ public class ProfileViewModel extends BaseViewModel {
         Picasso.with(view.getContext()).load(imageURL).into(view);
     }
 
-    public void setContext(Context context) {
+    public void setContextAndsetCallBackAndGetData(Context context, ProfileCallBack callBack) {
         this.context = context;
+        this.callBack = callBack;
+        getNotificationData();
+    }
+
+    private void getNotificationData() {
+        List<NotificationModel> list = new ArrayList<>();
+        list.add(new NotificationModel("Reda Send you 10 points", ""));
+        list.add(new NotificationModel("Reda Send you 20 points", ""));
+        list.add(new NotificationModel("Reda Send you 30 points", ""));
+        callBack.setNotificationData(list);
     }
 
     public String getImageUrl() {

@@ -22,6 +22,7 @@ import com.ahmed.elmalek.models.CategoryModel;
 import com.ahmed.elmalek.ui.category_screen.view_model.CategoryFragmentViewModel;
 import com.ahmed.elmalek.ui.home_screen.view.HomeActivity;
 import com.ahmed.elmalek.ui.subcategory_screen.view.SubcategoryFragment;
+import com.ahmed.elmalek.utils.GeneralMethods;
 
 import java.util.List;
 
@@ -32,6 +33,10 @@ public class CategoryFragment extends Fragment implements CategoryCallBack {
     private CategoryFragmentViewModel viewModel;
 
 
+    public static Fragment newInstance() {
+        return new CategoryFragment();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,6 +44,8 @@ public class CategoryFragment extends Fragment implements CategoryCallBack {
         viewModel = ViewModelProviders.of(this).get(CategoryFragmentViewModel.class);
         binding.setCategoryVM(viewModel);
         viewModel.setCallBackAndGetData(this);
+        ((HomeActivity) getActivity()).showSlider(true);
+        GeneralMethods.changeViewFont(getActivity());
         return binding.getRoot();
     }
 
@@ -59,8 +66,7 @@ public class CategoryFragment extends Fragment implements CategoryCallBack {
         fragmentManager = getFragmentManager();
         fragmentManager.findFragmentById(R.id.home_frame_layout);
         fragmentTransaction = fragmentManager.beginTransaction();
-        SubcategoryFragment subcategoryFragment = new SubcategoryFragment();
-        fragmentTransaction.replace(R.id.home_frame_layout, subcategoryFragment)
+        fragmentTransaction.replace(R.id.home_frame_layout, SubcategoryFragment.newInstance())
                 .addToBackStack("subcategory")
                 .commit();
     }
